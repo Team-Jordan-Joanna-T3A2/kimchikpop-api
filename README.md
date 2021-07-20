@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+---
+
+https://github.com/Team-Jordan-Joanna-T3A2/kimchikpop-api
