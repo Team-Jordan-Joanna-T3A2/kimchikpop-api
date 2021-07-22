@@ -17,3 +17,5 @@ Rails.application.routes.draw do
     #   delete '/reservations/:id', to: 'reservations#destroy'
   end
 end
+
+# Test comment
