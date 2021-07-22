@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
   scope "/api" do
     resources :reservations
-    resources :users
+
+    
     #   get '/users', to: 'users#index'
-    #   post '/users', to: 'users#create'
+      post '/sign-up', to: 'users#sign_up'
+      post '/login', to: 'users#login'
+
     #   get '/users/:id', to: 'users#show'
     #   put '/users/:id', to: 'users#update'
     #   delete '/users/:id', to: 'users#destroy'

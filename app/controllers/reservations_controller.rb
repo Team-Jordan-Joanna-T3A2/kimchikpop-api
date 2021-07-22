@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[update destroy show]
+  before_action :authenticated, only: [:index, :update, :destroy]
 
   def index
     render json: Reservation.all.order(id: :asc)
@@ -13,7 +14,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       #if the reservation saves successfully
-      render json: @reservation, status: :created
+      render json: @reservation, status: :created, code: ReservationHelper.generate
     else
       #if it errors out
       render json: @reservation.errors, status: :unprocessable_entity
