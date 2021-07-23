@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 before_action :authenticated
 
+  def index
+    render json: User.all.order(id: :asc)
+  end
+
+
+
   def sign_up
     @user = User.create(user_params)
     if @user.valid?

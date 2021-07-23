@@ -5,9 +5,10 @@ Rails.application.routes.draw do
     resources :reservations
 
     
-    #   get '/users', to: 'users#index'
+      get '/users', to: 'users#index'
       post '/sign-up', to: 'users#sign_up'
       post '/login', to: 'users#login'
+      
 
     #   get '/users/:id', to: 'users#show'
     #   put '/users/:id', to: 'users#update'

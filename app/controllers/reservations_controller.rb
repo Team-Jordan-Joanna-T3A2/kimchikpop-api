@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[update destroy show]
-  before_action :authenticated, only: [:index, :update, :destroy]
+  before_action :authenticated, only: %i[index update destroy]
 
   def index
     render json: Reservation.all.order(id: :asc)
