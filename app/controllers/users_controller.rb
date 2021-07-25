@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :authenticated
+# before_action :authenticated
 
   def index
     render json: User.all.order(id: :asc)

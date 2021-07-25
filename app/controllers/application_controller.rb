@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
           decoded = JWT.decode(token, Rails.application.credentials.jwt_secret_key, true, algorithm: 'HS512')
           user_id = decoded[0]['user_id']
           @user = User.find(user_id)
-        rescue => exception
+        rescue JWT::DecodeError
           render json: { message: 'Unauthorized: Please log in' }
         end
     end    
