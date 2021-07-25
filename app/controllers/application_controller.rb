@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
     end
 
 
-    def authenticated
+    def authenticated!
         begin
           token = request.authorization.split(' ')[1]
           decoded = JWT.decode(token, Rails.application.credentials.jwt_secret_key, true, algorithm: 'HS512')
@@ -18,7 +18,15 @@ class ApplicationController < ActionController::API
         rescue JWT::DecodeError
           render json: { message: 'Unauthorized: Please log in' }
         end
-    end    
+    end
+    
+    protected
+
+    def verify_admin!
+      unless @user.admin?
+        render json: { message: 'You do not have admin privileges' } and return
+      end
+    end
 
     # def authenticated
     #    token = request.authorization().split(' ')[1]
