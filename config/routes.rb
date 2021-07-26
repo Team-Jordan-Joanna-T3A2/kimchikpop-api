@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get "/users/:id", to: "users#show"
     put "/users/:id", to: "users#update"
     delete "/users/:id", to: "users#destroy"
-    post "users/login", to: "users#"
+    post "users/login", to: "users#login"
 
     get "/reservations", to: "reservations#index"
     post "/reservations", to: "reservations#create"
