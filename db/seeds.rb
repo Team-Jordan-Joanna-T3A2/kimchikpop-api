@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
-User.create(username: "hostess", password: "pasword0", user_type: 0)
-User.create(username: "admin", password: "password1", user_type: 1)
+User.create(username: "hostess", password: "password0", password_confirmation: "password0", user_type: 0)
+User.create(username: "admin", password: "password1", password_confirmation: "password1", user_type: 1)
 
 Reservation.destroy_all
 
