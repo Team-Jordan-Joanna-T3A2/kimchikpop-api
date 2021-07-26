@@ -2,12 +2,9 @@ class UsersController < ApplicationController
 before_action :authenticated!, except: %i[login]
 before_action :verify_admin!, only: %i[sign_up]
 
-
   def index
     render json: User.all.order(id: :asc)
   end
-
-
 
   def sign_up
     new_user = User.create(user_params)
@@ -30,6 +27,6 @@ before_action :verify_admin!, only: %i[sign_up]
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, :user_type)
+    params.require(:user).permit(:user, :username, :password, :user_type)
   end
 end
