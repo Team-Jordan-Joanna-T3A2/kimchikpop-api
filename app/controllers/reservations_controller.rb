@@ -55,7 +55,7 @@ class ReservationsController < ApplicationController
   def generate
     new_code = SecureRandomString.new(6, lowercase: :false)
     uniq = true
-    Reservation.all.each { |reservation| uniq = false if reservation.code = new_code }
+    Reservation.all.each { |reservation| uniq = false if reservation.code == new_code }
     if uniq 
       return new_code
     else
