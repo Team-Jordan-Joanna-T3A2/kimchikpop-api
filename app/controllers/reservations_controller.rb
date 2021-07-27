@@ -1,10 +1,9 @@
 class ReservationsController < ApplicationController
   before_action :authenticated!, only: %i[index update destroy]
   before_action :set_reservation, only: %i[update destroy show]
-  
 
   def index
-    render json: Reservation.all.order(id: :asc)
+    render json: Reservation.all.order(time: :asc)
   end
 
   def show
@@ -18,7 +17,7 @@ class ReservationsController < ApplicationController
       #Mailgun sending confirmation email
       ReservationMailer.booking_confirmation_email(@reservation).deliver_now
       #if the reservation saves successfully
-      render json: @reservation, status: :created 
+      render json: @reservation, status: :created
       # code: ReservationHelper.generate
     else
       #if it errors out
