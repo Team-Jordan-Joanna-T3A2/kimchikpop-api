@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     get "/reservations/:id", to: "reservations#show"
     put "/reservations/:id", to: "reservations#update"
     delete "/reservations/:id", to: "reserations#destroy"
+    get "/reservations/today", to: "reservations#show_only_today"
   end
 end

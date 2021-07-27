@@ -10,6 +10,10 @@ class ReservationsController < ApplicationController
     render json: @reservation, status: :ok
   end
 
+  def show_only_today
+    render json: Reservation.today
+  end
+
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.code = generate
