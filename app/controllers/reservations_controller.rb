@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
     render json: @reservation, status: :ok
   end
 
-  def show_only_today
+  def today
     render json: Reservation.today
   end
 

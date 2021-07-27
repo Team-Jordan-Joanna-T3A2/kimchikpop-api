@@ -8,11 +8,10 @@ Rails.application.routes.draw do
     delete "/users/:id", to: "users#destroy"
     post "/users/login", to: "users#login"
 
-    get "/reservations", to: "reservations#index"
-    post "/reservations", to: "reservations#create"
-    get "/reservations/:id", to: "reservations#show"
-    put "/reservations/:id", to: "reservations#update"
-    delete "/reservations/:id", to: "reserations#destroy"
-    get "/reservations/today", to: "reservations#show_only_today"
+    resources :reservations do
+      collection do
+        get :today 
+      end
+    end
   end
 end
