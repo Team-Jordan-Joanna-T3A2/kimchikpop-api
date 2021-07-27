@@ -1,1 +1,19 @@
-Thank you <%= @reservation.first_name %> for your booking!
+Dear <%= @reservation.first_name %>,
+
+Your booking has been confirmed.
+
+Here are your booking details:
+
+---
+
+First Name: <%= @reservation.first_name%>
+Last Name: <%= @reservation.last_name%>
+Dine-in Time: <%= @reservation.time%>
+Party Size: <%= @reservation.pax%>
+
+Booking code: <%= @reservation.code%>
+
+---
+
+Looking forward to seeing you at KIMCHI&KPOP!
+
