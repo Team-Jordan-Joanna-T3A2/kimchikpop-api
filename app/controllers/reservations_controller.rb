@@ -15,6 +15,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.code = generate
     if @reservation.save
+      #Mailgun sending confirmation email
+      ReservationMailer.booking_confirmation_email(@reservation).deliver_now
       #if the reservation saves successfully
       render json: @reservation, status: :created 
       # code: ReservationHelper.generate
