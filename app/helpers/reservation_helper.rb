@@ -5,7 +5,7 @@ module ReservationHelper
     new_code = SecureRandomString.new(6, lowercase: :false)
     uniq = true
     Reservations.all.each { |reservation| uniq = false if reservation.code = new_code }
-    if uniq = true
+    if uniq 
       return new_code
     else
       self.generate
