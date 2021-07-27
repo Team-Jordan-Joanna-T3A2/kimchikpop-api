@@ -18,9 +18,10 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by_username(params[:username])
     if @user && @user.authenticate(params[:password])
+      puts encode({ user_id: @user.id })
       render json: { message: "Succesful login", token: encode({ user_id: @user.id }) }, status: :ok
     else
-      render json: { error: "Invalid username or password" }
+      render json: { error: "Invalid username or password" }, status: :unprocessable_entity
     end
   end
 

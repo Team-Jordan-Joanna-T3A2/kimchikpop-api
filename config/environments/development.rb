@@ -35,7 +35,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.delivery_method = :local
+  config.action_mailer.delivery_method = :file
 
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
